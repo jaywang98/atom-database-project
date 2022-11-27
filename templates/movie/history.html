@@ -1,0 +1,104 @@
+{% extends 'movie/base.html' %}
+{% block content %}
+    <script src="{% static 'layer/layer.js' %}"></script>
+    <style>
+        .poster {
+            float: left;
+            margin: 3px 12px 0 0;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .info {
+            margin-top: 15px;
+            float: left;
+            word-wrap: break-word;
+        }
+
+        hr {
+            -moz-border-bottom-colors: none;
+            -moz-border-image: none;
+            -moz-border-left-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-top-colors: none;
+            border-color: #c9302c;
+            border-style: solid none;
+            border-width: 1px 0;
+            margin: 18px 0;
+        }
+    </style>
+    <div class="container">
+        {% for message in messages %}
+            {% if message.tags == 'info' %}
+                <div class="alert alert-success" role="alert">{{ message }}</div>
+            {% endif %}
+        {% endfor %}
+        <div class="alert-success alert" role="alert">评分历史</div>
+    </div>
+
+    {% for rating in ratings %}
+        <div class="container">
+            <div class="poster">
+                <a href="{% url 'movie:detail' rating.movie.pk %}" class="item">
+                    <div class="poster_div">
+                        <img src="/static/movie/poster/{{ rating.movie.imdb_id }}.jpg" alt="">
+                    </div>
+                </a>
+            </div>
+            <div class="info">
+                <p>
+                    电影名：
+                    {{ rating.movie.name }}
+                    <span>
+                    {% for foo in rating.movie.get_score_int_range %}
+                        ❤
+                    {% endfor %}
+                    </span>
+                    <strong style="color:#e09015">{{ rating.movie.get_score }}</strong>
+                </p>
+                <p>
+                    我的评分:
+                    <strong style="color:#e09015">{{ rating.score }} </strong>
+                    我的评论:
+                    <strong>{{ rating.comment }}</strong>
+                </p>
+                {#                <a href="#">#}
+                <button type="button" class="btn btn-warning"
+                        onclick="confirm_delete('{% url "movie:delete_record" rating.movie.id %}')"><span
+                        class="glyphicon glyphicon-trash"></span> 删除评论
+                </button>
+                {#                </a>#}
+            </div>
+
+        </div>
+        <div class="container"><hr></div>
+
+    {% endfor %}
+    <script>
+        // 删除文章的函数
+        function confirm_delete(url) {
+            // 调用layer弹窗组件
+            layer.open({
+                // 弹窗标题
+                title: "确认删除",
+                // 正文
+                content: "确认删除这条评论吗？",
+                // 点击确定按钮后调用的回调函数
+                yes: function (index, layero) {
+                    // 指定应当前往的 url
+                    {#location.href='{% url "article:article_delete" article.id %}'#}
+                    {#location.href = '{% url "movie:delete_record" %}'#}
+                    location.href = url
+                },
+            })
+        }
+    </script>
+    <script>
+        window.onkeyup = function (ev) {
+            var key = ev.keyCode || ev.which;
+            if (key == 27) { //按下Escape
+                layer.closeAll(); //疯狂模式，关闭所有层
+            }
+        }
+    </script>
+{% endblock %}
