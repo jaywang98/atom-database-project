@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"><!--引入bootstrap的css样式库-->
-    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script><!--引入jQuery-->
-    <!--bootstrap是基于jQuery库的，所以应该先导入jQuery-->
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script><!--引入bootstrap-->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <style>
         /*
          * Globals
@@ -101,7 +101,7 @@
         .masthead-nav > li > a:focus {
             background-color: transparent;
             border-bottom-color: #a9a9a9;
-            border-bottom-color: rgba(255, 255, 255, .25);
+            border-bottom-color: rgba(211, 169, 169, 0.25);
         }
 
         .masthead-nav > .active > a,
@@ -195,33 +195,34 @@
 
             <div class="masthead clearfix">
                 <div class="inner">
-{#                    <h3 class="masthead-brand">首页</h3>#}
+{#                    <img src="static/movie/sdsc_logo.svg" align="left", width="80%">#}
+{#                    <h3 class="masthead-brand">front page</h3>#}
 {#                    <nav>#}
 {#                        <ul class="nav masthead-nav">#}
-{#                            <li class="active"><a href="#">电影推荐系统</a></li>#}
+{#                            <li class="active"><a href="#">Movie recommendation system</a></li>#}
 {#                            <li><a href="#">Features</a></li>#}
 {#                            <li><a href="#">Contact</a></li>#}
 {#                        </ul>#}
 {#                    </nav>#}
 
                 </div>
-
             </div>
 
             <div class="inner cover">
-                <h1 class="cover-heading">基于协同过滤的电影推荐系统</h1>
-                <p class="lead">使用Django+Mysql+Bootstrap搭建</p>
+                <h2 class="cover-heading">Movie Website and Recommendation System</h2>
+                <br/> <br/>
+                <p class="lead">Build with Django+Mysql+Bootstrap</p>
+                <br/>
                 <p class="lead">
-                    <a href="{% url 'movie:index' %}" class="btn btn-lg btn-default">进入电影首页</a>
+                    <a href="{% url 'movie:index' %}" class="btn btn-lg btn-default">Enter the Homepage</a>
                 </p>
             </div>
 
-{#            <div class="mastfoot">#}
-{#                <div class="inner">#}
-{#                    <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a#}
-{#                            href="https://twitter.com/mdo">@mdo</a>.</p>#}
-{#                </div>#}
-{#            </div>#}
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>Project for SDSC 5003, by Group Atom </p>
+                </div>
+            </div>
 
         </div>
 

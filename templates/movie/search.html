@@ -22,7 +22,7 @@
     </style>
     <!--展示电影图片用-->
     <div class="container">
-        <div class="alert alert-success" role="alert">{{ keyword }} 的搜索结果</div>
+        <div class="alert alert-success" role="alert">{{ keyword }} Search Results</div>
 
         {% for movie in movies %}
             <a href="{% url 'movie:detail' movie.pk %}" class="item">
@@ -41,9 +41,9 @@
         <ul class="pagination">
             {#previous page#}
             {% if page_obj.has_previous %}
-                <li><a href="{% url 'movie:tag' %}?p={{ page_obj.previous_page_number }}">上一页</a></li>
+                <li><a href="{% url 'movie:tag' %}?p={{ page_obj.previous_page_number }}">Previous</a></li>
             {% else %}
-                <li class="disabled"><a href="javascript:void(0);">上一页</a></li>
+                <li class="disabled"><a href="javascript:void(0);">Previous</a></li>
             {% endif %}
 
             {% if left_has_more %}
@@ -69,9 +69,9 @@
             {% endif %}
             {#next page#}
             {% if page_obj.has_next %}
-                <li><a href="{% url 'movie:tag' %}?p={{ page_obj.next_page_number }}">下一页</a></li>
+                <li><a href="{% url 'movie:tag' %}?p={{ page_obj.next_page_number }}">Next</a></li>
             {% else %}
-                <li class="disabled"><a href="javascript:void(0);">上一页</a></li>
+                <li class="disabled"><a href="javascript:void(0);">Next</a></li>
             {% endif %}
         </ul>
     </nav>

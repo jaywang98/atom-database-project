@@ -50,7 +50,7 @@
         </div>
         <div class="info">
             <p>
-                电影名：
+                Movie Name：
                 {{ movie.name }}
                 <span>
                     {% for foo in movie.get_score_int_range %}
@@ -59,12 +59,12 @@
                 </span>
                 <strong style="color:#e09015">{{ movie.get_score }}</strong>
             </p>
-            <p>简介：{{ movie.intro }}</p>
-            <p>导演：{{ movie.director }}</p>
-            <p>编剧：{{ movie.writers }}</p>
-            <p>主演：{{ movie.actors }}</p>
+            <p>Introduction：{{ movie.intro }}</p>
+            <p>Director：{{ movie.director }}</p>
+            <p>Playwright：{{ movie.writers }}</p>
+            <p>Actors：{{ movie.actors }}</p>
             <p>
-                类型：
+                Type：
                 {% for genre in movie.get_genre %}
                     <a href="{% url 'movie:tag' %}?genre={{ genre }}">{{ genre }}</a>
                     {% if not forloop.last %}
@@ -72,14 +72,14 @@
                     {% endif %}
                 {% endfor %}
             </p>
-            <p>时长：{{ movie.time }}</p>
-            <p>发行时间：{{ movie.release_time }}</p>
+            <p>Duration Time：{{ movie.time }}</p>
+            <p>Release Time：{{ movie.release_time }}</p>
         </div>
     </div>
 
     <div class="container similarity_movie">
         <br>
-        <div class="alert alert-warning" role="alert">喜欢这部电影的人也喜欢...</div>
+        <div class="alert alert-warning" role="alert">People who like this movie also like...</div>
 
         {% for movie in similarity_movies %}
             <div class="smovie" {% if forloop.first %} style="margin-left: -6px" {% endif %}>
@@ -117,13 +117,13 @@
                        step="0.5"
                        data-stars=5
                        data-symbol="&#xe005;" data-default-caption="{rating} hearts" data-star-captions="{}">
-                <label for="comment">评论:</label>
+                <label for="comment">Comments:</label>
                 <textarea class="form-control" name="comment" rows="5" id="comment">{{ comment }}</textarea>
                 <br>
                 <div class="form-group">
                     {#                提交的按钮#}
-                    <button type="submit" class="btn btn-primary" style="margin-right: 10px">提交</button>
-                    <button type="reset" class="btn btn-default">清空</button>
+                    <button type="submit" class="btn btn-primary" style="margin-right: 10px">Submit</button>
+                    <button type="reset" class="btn btn-default">Clear</button>
                 </div>
             </form>
             <br>

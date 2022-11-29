@@ -34,7 +34,7 @@
                 <div class="alert alert-success" role="alert">{{ message }}</div>
             {% endif %}
         {% endfor %}
-        <div class="alert alert-info" role="alert">这是根据你的评分历史推荐出来的10部电影</div>
+        <div class="alert alert-info" role="alert">Here are 10 movies recommended based on your rating history</div>
     </div>
 
     {% for movie in movies %}
@@ -50,7 +50,7 @@
                 </div>
                 <div class="info">
                     <p>
-                        电影名：
+                        Movie Name：
                         {{ movie.name }}
                     </p>
                     <span>
@@ -64,7 +64,7 @@
                         {{ movie.intro }}
                     </p>
                     <p>
-                        类型：
+                        Type：
                         {% for genre in movie.get_genre %}
                             <a href="{% url 'movie:tag' %}?genre={{ genre }}">{{ genre }}</a>
                             {% if not forloop.last %}

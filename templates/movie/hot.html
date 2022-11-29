@@ -62,9 +62,9 @@
             {% endif %}
             {#next page#}
             {% if page_obj.has_next %}
-                <li><a href="{% url 'movie:hot' %}?p={{ page_obj.next_page_number }}">下一页</a></li>
+                <li><a href="{% url 'movie:hot' %}?p={{ page_obj.next_page_number }}">Next</a></li>
             {% else %}
-                <li class="disabled"><a href="javascript:void(0);">上一页</a></li>
+                <li class="disabled"><a href="javascript:void(0);">Previous</a></li>
             {% endif %}
         </ul>
     </nav>

@@ -1,26 +1,91 @@
 {% extends "movie/base.html" %}
 {% block content %}
     <style>
+        #carousel-example-generic {
+            width: 1070px;
+            margin-bottom: 10px;
+        }
+
         .item{
             display: block;
             float: left;
             font-size: 15px;
             text-align: center;
-            margin:0 25px 10px 0;
+            {#margin:0 25px 10px 0;#}
+            margin: 20px 0 0 10px;
             width: 200px;
+        }
+        .carousel-inner>.item{
+            margin: 0;
         }
         .item .poster_div{
             height: 320px;
             overflow: hidden;
         }
+
+
+        .carousel-inner>.item {
+            width: 100%;
+        }
+
+        .carousel-inner>.item>img {
+            width: 100%;
+            height: 400px;
+            display: block;
+        }
+
+
+
+
+
     </style>
     <div class="container">
-        <div class="jumbotron">
-            <h1>简介</h1>
-            <p>首页会展示部分电影，热门电影会展示评分最高的前100部电影，你可以点击任意一部电影查看它的详细介绍</p>
-            <p>你可以给电影评分，当你评分的电影超过10部，就可以查看网站对你的推荐结果</p>
-            <p>使用分类或搜索功能可以帮助你找到电影</p>
+    {#        <div class="jumbotron">#}
+    {#            <h1>Introduction</h1>#}
+    {#            <p>Some movies will be displayed on the homepage, and the top 100 movies with the highest ratings will be displayed for popular movies. You can click on any movie to view its detailed introduction.</p>#}
+    {#            <p>You can rate movies.After rating more than 10 movies, you can check the recommendation results.</p>#}
+    {#            <p>Use "Movie Classification" or "Search" to help you find movies</p>#}
+    {#        </div>#}
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <img src="/static/movie/logo.png" alt="...">
+              <div class="carousel-caption">
+
+              </div>
+            </div>
+            <div class="item">
+              <img src="/static/movie/yi.jpg" alt="...">
+              <div class="carousel-caption">
+              </div>
+            </div>
+          <div class="item">
+              <img src="/static/movie/avatar.jpg" alt="...">
+              <div class="carousel-caption">
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
+
     </div>
     <!--展示电影图片用-->
     <div class="container">
@@ -42,9 +107,9 @@
         <ul class="pagination">
             {#previous page#}
             {% if page_obj.has_previous %}
-                <li><a href="{% url 'movie:index' %}?p={{ page_obj.previous_page_number }}">上一页</a></li>
+                <li><a href="{% url 'movie:index' %}?p={{ page_obj.previous_page_number }}">Previous</a></li>
             {% else %}
-                <li class="disabled"><a href="javascript:void(0);">上一页</a></li>
+                <li class="disabled"><a href="javascript:void(0);">Previous</a></li>
             {% endif %}
 
             {% if left_has_more %}
@@ -70,9 +135,9 @@
             {% endif %}
             {#next page#}
             {% if page_obj.has_next %}
-                <li><a href="{% url 'movie:index' %}?p={{ page_obj.next_page_number }}">下一页</a></li>
+                <li><a href="{% url 'movie:index' %}?p={{ page_obj.next_page_number }}">Next</a></li>
             {% else %}
-                <li class="disabled"><a href="javascript:void(0);">上一页</a></li>
+                <li class="disabled"><a href="javascript:void(0);">Previous</a></li>
             {% endif %}
         </ul>
     </nav>
