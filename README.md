@@ -1,6 +1,12 @@
 # Document for atom-database-project
 This repo record a project which built a movie recommendation system based on the Django framework.
 
+## Catalog
+
+[TOC]
+
+<div STYLE="page-break-after: always;"></div>
+
 ## Environment dependencies
 ```text
 python       3.10
@@ -36,7 +42,10 @@ cd /path/to/project
 pip install -r requirements.txt --no-dependencies
 ```
 
+<div STYLE="page-break-after: always;"></div>
+
 ### MySQL Preparation
+
 ```shell
 # Mysql was applied to this project, the default user is root, password: 123456
 # If the default settings are changed, please update the 'DATABASES' in Movie_recommendation_system/setting.py
@@ -48,14 +57,16 @@ use movie_recommend_db;
 source /path/to/project/database/movie_recommend_db.sql
 ```
 
-### Activate
+### Migrate & Activate
 ```shell
+cd /path/to/project
 python manage.py migrate
 python manage.py runserver localhost:8000
 ```
 
 ### Result
-Open project homepage with http://localhost:8000/ in the browser.
+Open the project homepage by inputting the link http://localhost:8000/ into the browser.
+
 ![result](pic/shell.png)
 
 ## Demo

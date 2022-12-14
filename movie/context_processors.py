@@ -1,6 +1,5 @@
 from .models import User
 
-# 上下文处理器
 def movie_user(request):
     user_id=request.session.get('user_id')
     context={}

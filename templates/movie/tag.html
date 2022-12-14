@@ -55,9 +55,8 @@
         {% if genre %}
             <div class="alert alert-info" role="alert">{{ genre }} type of movies：</div>
         {% endif %}
-
     </div>
-    <!--展示电影图片用-->
+
     <div class="container">
         {% for movie in movies %}
             <a href="{% url 'movie:detail' movie.pk %}" class="item">
